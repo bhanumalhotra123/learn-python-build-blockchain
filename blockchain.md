@@ -73,17 +73,19 @@ class Blockchain(object):
         return self.last_block['index'] + 1
         
 
-After new_transaction() adds a transaction to the list, it returns the index of the block which the transaction will be added to—the next one to be mined. This will be useful later on, to the user submitting the transaction.
+# After new_transaction() adds a transaction to the list, it returns the index of the block which the transaction will be added to—the next one to be mined. This # will be useful later on, to the user submitting the transaction.
 
-Creating new Blocks
+# Creating new Blocks
 
-When our Blockchain is instantiated we’ll need to seed it with a genesis block—a block with no predecessors. We’ll also need to add a “proof” to our genesis block which is the result of mining (or proof of work). We’ll talk more about mining later.
+# When our Blockchain is instantiated we’ll need to seed it with a genesis block—a block with no predecessors. We’ll also need to add a “proof” to our genesis #block which is the result of mining (or proof of work). We’ll talk more about mining later.
 
-In addition to creating the genesis block in our constructor, we’ll also flesh out the methods for
-new_block(), new_transaction() and hash().
+# In addition to creating the genesis block in our constructor, we’ll also flesh out the methods for
+#new_block(), new_transaction() and hash().
 
 
-When a new block is created, the self.current_transactions list contains all the transactions that have been created since the last block was mined. These transactions are added to the new block's transactions field. Once the new block is added to the blockchain, the self.current_transactions list is cleared to allow for new transactions to be collected for the next block. This ensures that each transaction is only included in one block and prevents duplication.
+# When a new block is created, the self.current_transactions list contains all the transactions that have been created since the last block was mined. These 
+# transactions are added to the new block's transactions field. Once the new block is added to the blockchain, the self.current_transactions list is cleared to
+# allow for new transactions to be collected for the next block. This ensures that each transaction is only included in one block and prevents duplication.
 
 import hashlib
 import json
